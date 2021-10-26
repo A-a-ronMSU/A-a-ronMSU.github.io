@@ -1,21 +1,149 @@
 <!doctype html>
 <html>
   <head>
-    <title> Aaron Doherty CSS Page </title>
+    <title> Aaron Doherty Page </title>
 
+  <style>
+    p { font-family: serif;}
+    h1,h2,h3 { font-family: fantasy;}
+    #divbox {display: flex; flex-direction: column; flex-wrap: wrap;}
+
+    #tribute {background-color: Silver; border: 1pt; }
+    #courses {background-color: PowderBlue}
+    .container { padding: .33in;
+                border: 5px solid Navy;
+                background-color: SkyBlue;
+                margin: 2pt }
+    #abasin { width: 600px; height: 400px; border-radius: 25px;}
+  </style>
 
   </head>
 
 <body>
 
+<div id="divbox">
+ <div id="tribute" class="container">
+  <h1 class="header">This is not the greatest website in the world,</h1>
+  <p>  this is just a <b> tribute. </b> I couldn't <i> remember </i>the greatest website in the world, no. </p>
+  <p> This is my first website, so I understand it is unlikely to be a great, even good website and that's okay.</p>
+  <p> My name is Aaron, I'm a Geospatial Sciences major at MSU Denver. I have a daughter that also attends MSU and a son
+    who is a junior in high school. I grew up in Colorado Ski Country USA, but have been retired from that sport for over
+    twenty years because I skied all the terrain and got to the end of the game. Now I like to play disc golf,
+    read current events and history. I watch ice hockey, golf, international football,
+    American football, baseball, and Formula 1. </p>
+</div>
+
+<div id="courses" class="container">
+  <h2 class="header">This is a list of some mountain disc golf courses in Colorado I've played: </h2>
+    <ul>
+      <li> Frisco</li>
+      <li> Dillon</li>
+      <li> Arapahoe Basin</li>
+      <li> Leadville</li>
+      <li> Glenwood Springs</li>
+      <li> Eagle</li>
+      <li> Montrose</li>
+      <li> Winter Park</li>
+      <li> Bear Mountain</li>
+      <li> Ghost Town</li>
+      <li> Wondervu</li>
+      <li> Conifer</li>
+      <li> Bailey</li>
+      <li> High View</li>
+    </ul>
+  </div>
 
 
-<h1 style="text-align:center; font-weight:bold; color: blue">
-  Testing CSS </h1>
+<div id="video_links" class="container">
+ <h3 class="header"> This part of the webpage is links to videos:</h3>
+  <p> Fastest lap in Formula 1 history at <a href="https://www.youtube.com/watch?v=2f1PtJV0vIs">MONZA</a></p>
+  <p> James Conrad throws the greatest shot in disc golf history at 2021 <a href="https://www.youtube.com/watch?v=eOhO7FfVQlE">Worlds</a></p>
+  <p> I Got To Put The Hammer Down by <a href="https://www.youtube.com/watch?v=6W92hPWyU-A">WEEN</a></p>
 
-<p style="font-size 14pt; color: Orange; font-family:Arial, Helvetica,
-  sans-serif"> This is a test of orange text</P>
+</div>
 
+<div id="atom_headline" class="container">
+  <h3 class="header"> This part of the webpage was the day I installed Atom, not Adam </h3>
+</div>
+
+<div id="ghost_town_map" class="container">
+  <p>This is the old map of Ghost Town from a link
+  <img width=750 height=500 src = "https://www.dgcoursereview.com/course_files/2668/01619c4f.gif"img>
+  </p>
+</div>
+
+<div id="abasin_map" class="container">
+  <p>Here's a map of A-Basin Disc Golf from a file
+    <img id="abasin" src="A Basin Disc Golf.jpg" </p>
+</div>
+
+
+
+ <div id="nhl_goal_scorers" class="container">
+ <table border=1>
+    <tr><td colspan=4>NHL Top 10 Goal Scorers All-time:</td>
+    </tr>
+    <tr><th>Rank</th>
+        <th>Name</th>
+        <th>Goals</th>
+        <th>Games</th>
+    </tr><td>1</td>
+        <td>Wayne Gretzky</td>
+        <td>894</td>
+        <td>1487</td>
+    </tr>
+  </tr><td>2</td>
+      <td>Gordie Howe</td>
+      <td>801</td>
+      <td>1767</td>
+  </tr>
+  </tr><td>3</td>
+    <td>Jaromir Jagr</td>
+    <td>766</td>
+    <td>1733</td>
+  </tr>
+  </tr><td>4</td>
+    <td>Brett Hull</td>
+    <td>741</td>
+    <td>1269</td>
+  </tr>
+</tr><td>5</td>
+    <td>Alexander Ovechkin*</td>
+    <td>734</td>
+    <td>1199</td>
+  </tr>
+</tr><td>6</td>
+    <td>Marcel Dionne</td>
+    <td>731</td>
+    <td>1348</td>
+  </tr>
+</tr><td>7</td>
+    <td>Phil Esposito</td>
+    <td>717</td>
+    <td>1282</td>
+  </tr>
+</tr><td>8</td>
+    <td>Mike Gartner</td>
+    <td>708</td>
+    <td>1432</td>
+</tr>
+</tr><td>9</td>
+    <td>Mark Messier</td>
+    <td>694</td>
+    <td>1756</td>
+</tr>
+</tr><td>10</td>
+    <td>Steve Yzerman</td>
+    <td>692</td>
+    <td>1514</td>
+</tr>
+<tr><td colspan=4>* Denotes Active Player</td>
+</tr>
+</table>
+
+</div>
+
+</div>
 
 </body>
 </html>
