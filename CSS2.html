@@ -19,14 +19,6 @@
                 margin-left: auto; margin-right: auto; position: relative; width: 800px }
     #abasin { width: 600px; height: 400px}
     .center {margin-left: auto; margin-right: auto; width: 50%}
-<script>
-    function showPicture() {
-      var sourceOfPicture = "whippet.jpg";
-      var img = document.getElementById('whippet');
-      img.src = sourceOfPicture.replace('90x90', '225x225');
-      img.style.display = "block";
-      }
-</script>
   </style>
 
   </head>
@@ -176,10 +168,15 @@
   Here To Play A Game</button>
 </div>
 
-<div id="whippet" class="container">
-  <img style="display:none" id="whippet" src="whippet.jpg"/>
-  <button onclick="showPicture()">Enlarge</button>
+<div id="javatest" class="continer">
+  <h3 class="header">Javascript Tests</h3>
+  <p>
+    <script>
+        document.write("This is Javascript Testing.<br>");
+    </script>
+  </p>
 </div>
+
 
 </body>
 </html>
