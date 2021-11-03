@@ -20,6 +20,8 @@
     #abasin { width: 600px; height: 400px}
     .center {margin-left: auto; margin-right: auto; width: 50%}
   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
   </head>
 
@@ -170,12 +172,15 @@
 
 <div id="javatest" class="continer">
   <h3 class="header">Javascript Tests</h3>
-  <p>
+
+  <button id="javabutton"> Click to learn more about Javascript</button>
+
     <script>
-        var name = "Javascript";
-        document.write("This is Javascript Testing.<br>" + "and my name is "+name);
-        console.log("javascript is working!");
+        $("button#javabutton").click( function() {
+            $("p#aboutjavascipt").show();
+        });
     </script>
+  <p hidden id="aboutjavascipt"> This is supposed to be information about JS
   </p>
 </div>
 
