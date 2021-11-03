@@ -19,6 +19,13 @@
                 margin-left: auto; margin-right: auto; position: relative; width: 800px }
     #abasin { width: 600px; height: 400px}
     .center {margin-left: auto; margin-right: auto; width: 50%}
+    function showPicture() {
+    var sourceOfPicture = "whippet.jpg";
+    var img = document.getElementById('Whippet')
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+    }
+
   </style>
 
   </head>
@@ -169,10 +176,8 @@
 </div>
 
 <div id="whippet" class="container">
-  <img id="whippet" style="display:none" src="whippet.jpg"<img/>
-  <button type="button"
-  onclick="document.getElementById('whippet').style.display='block'">Click HERE
-  to see a green Whippet.</button>
+  <img style="display:none" id="whippet" src="whippet.jpg"/>
+  <button onclick="showPicture()">Enlarge</button>
 </div>
 
 </body>
