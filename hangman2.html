@@ -6,7 +6,7 @@
     body {background-color: grey; }
     p { font-size: 24pt;}
     #game { width: 75%; margin: auto; }
-    #messages { color: red; }
+    #messages { color: red; font-size: 30}
     #messages1 {color: green;}
     #divbox {display: flex; flex-direction: column; flex-wrap: wrap;
       width: 1000px}
@@ -55,7 +55,7 @@
               guesses = guesses - 1;
               $("#guesses").html(guesses);
               if (guesses <=0) {
-                $("#messages").text("Out of guesses, GAME OVER!");
+                $("#messages").text("Out of attempts, you lost!");
                 finished=True;
               }
            }
@@ -75,7 +75,7 @@
           // check if we've won
           if (! blanks.includes("-")) {
             finished = true;
-            $("#messages").text("You WON!");
+            $("#messages").text("Winner, winner, chicken dinner!")
           }
 
 
