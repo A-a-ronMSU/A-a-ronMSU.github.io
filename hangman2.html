@@ -6,6 +6,14 @@
     p { font-size: 24pt;}
     #game { width: 50%; margin: auto; }
     #messages { color: red; }
+    #divbox {display: flex; flex-direction: column; flex-wrap: wrap;
+      width: 800px}
+
+
+    .container { padding: .25in;
+                border: 5px solid Navy;
+                background-color: SkyBlue;
+                margin-left: auto; margin-right: auto; position: relative; width: 800px }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
@@ -77,10 +85,16 @@
   </script>
 </head>
 <body>
-  <div id="game">
+
+<div id="divbox">
+  <div id="game" class="container">
   <p>The word to guess is <b><span id="word"></span></b>.</p>
+  </div>
+
   <p>There are <span id="guesses"></span> guesses left.</p>
+
   <p><i>Click on a letter below to play.</i></p>
+
   <p>
     <span class="letter" id="a">a</span>
     <span class="letter" id="b">b</span>
@@ -111,6 +125,6 @@
   </p>
   <p id="messages"></p>
 </div>
-
+</div>
 </body>
 </html>
