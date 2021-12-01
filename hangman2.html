@@ -7,6 +7,7 @@
     p { font-size: 24pt;}
     #game { width: 75%; margin: auto; }
     #messages { color: red; }
+    #messages1 {color: green;}
     #divbox {display: flex; flex-direction: column; flex-wrap: wrap;
       width: 1000px}
 
@@ -22,9 +23,9 @@
         // $(document) is the jQuery reference to the whole web page
         $(document).ready( function() {
         // put your javascript here
-        var word = "b o b a f e t t"; // the word to guess
-        var blanks = "- - - - - - - -"; // this var holds the temp info
-        var guesses = 10; // number of guesses left
+        var word = "l o n g i t u d e"; // the word to guess
+        var blanks = "- - - - - - - - -"; // this var holds the temp info
+        var guesses = 12; // number of guesses left
         var guessed = []; // letters already guessed
         var finished = false; // change to true when game finished
 
@@ -74,7 +75,7 @@
           // check if we've won
           if (! blanks.includes("-")) {
             finished = true;
-            $("#messages").text("You WON!");
+            $("#messages1").text("You WON!");
           }
 
 
@@ -89,13 +90,13 @@
 
 <div id="divbox">
   <div id="game" class="container">
-  <p>The word to guess is <b><span id="word"></span></b>.</p>
+  <p>The word of the day is: <b><span id="word"></span></b>!</p>
   </div>
   <div id="game2" class="container">
-  <p>There are <span id="guesses"></span> guesses left.</p>
+  <p>There are only<span id="guesses"></span> attempts remaining.</p>
   </div>
   <div id="game3" class="container">
-  <p><i>Click on a letter below to play.</i></p>
+  <p><i>Please select a letter to play.</i></p>
   </div>
   <div id="game4" class="container">
   <p>
