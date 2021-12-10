@@ -12,13 +12,22 @@
   <div id="map" style="width: 705px; height: 375px"></div>
 
   <script>
-
+    // FYI L denotes Leaflet function
     // Create variable to hold map element, initial settings to <map>
     var map = L.map('map', {center: [ 39.743218, -105.004568], zoom: 14});
 
     // Add Open Steet Map tile layer to map element
     var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                       { attribution: '@ OpenStreetMap' }).addTo(map);
+
+    // Create point for Auraria Library
+    var myDataPoint = L.marker([39.745119, -105.002959]).addTo(map);
+
+    // Create area feature for campus, stya and add to map
+    var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
+                    [39.748473, -105.002487], [39.740283, -104.999037]],
+                    { color: 'blue', weight: 4 } ).addTo(map);
+                    
   </script>
 
 </body>
