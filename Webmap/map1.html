@@ -5,49 +5,62 @@
     <!-- Add Leaflet link and javascript library -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready( function() {
+      // FYI L denotes Leaflet function
+      // Create variable to hold map element, initial settings to <map>
+      var map = L.map('map', {center: [ 39.743218, -105.004568], zoom: 14});
+
+      // Add Open Steet Map tile layer to map element
+      var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                        { attribution: '@ OpenStreetMap' }).addTo(map);
+
+      // Create point for Auraria Library
+      var myDataPoint = L.marker([39.745119, -105.002959]).addTo(map);
+
+      // Create area feature for campus, stya and add to map
+      var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
+                      [39.748473, -105.002487], [39.740283, -104.999037]],
+                      { color: 'blue', weight: 4 } ).addTo(map);
+
+      // Add popups
+      myDataPoint.bindPopup("<h3>This here is Auraria Library</h3><p>Mile High City</p>");
+      myArea.bindPopup("Auraria Campus");
+
+      // Create function to return a lat and long from a point clicked on the <map>
+      var popup = L.popup();
+
+      // Write function to set properties of the popup, returns a string
+      function onMapClick(e) {
+        popup
+        .setLatLng(e.latlng)
+        .setContent("Location Clicked: " + e.latlng.toString())
+        .openOn(map);
+        console.log("Clicked on the map");
+      }
+
+      // Listen for a click event on the map
+      map.on('click', onMapClick);
+
+      // Load geojson file from external file
+      $.getJSON("buildings.json", function(data) {
+          // add geojson layer to the map one the file is loaded
+          L.geoJson(data).addTo(map);
+        });  
+
+
+  // closing for the document.ready function
+  });
+
+    </script>
+
   </head>
 
 <body>
 
   <div id="map" style="width: 705px; height: 375px"></div>
 
-  <script>
-    // FYI L denotes Leaflet function
-    // Create variable to hold map element, initial settings to <map>
-    var map = L.map('map', {center: [ 39.743218, -105.004568], zoom: 14});
-
-    // Add Open Steet Map tile layer to map element
-    var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-                      { attribution: '@ OpenStreetMap' }).addTo(map);
-
-    // Create point for Auraria Library
-    var myDataPoint = L.marker([39.745119, -105.002959]).addTo(map);
-
-    // Create area feature for campus, stya and add to map
-    var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
-                    [39.748473, -105.002487], [39.740283, -104.999037]],
-                    { color: 'blue', weight: 4 } ).addTo(map);
-
-    // Add popups
-    myDataPoint.bindPopup("<h3>This here is Auraria Library</h3><p>Mile High City</p>");
-    myArea.bindPopup("Auraria Campus");
-
-    // Create function to return a lat and long from a point clicked on the <map>
-    var popup = L.popup();
-
-    // Write function to set properties of the popup, returns a string
-    function onMapClick(e) {
-      popup
-      .setLatLng(e.latlng)
-      .setContent("Location Clicked: " + e.latlng.toString())
-      .openOn(map);
-      console.log("Clicked on the map");
-    }
-
-    // Listen for a click event on the map
-    map.on('click', onMapClick);
-
-  </script>
 
 </body>
 
