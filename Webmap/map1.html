@@ -35,7 +35,7 @@
 
       // Create point for Auraria Library
       var myDataPoint = L.marker([39.745119, -105.002959]).addTo(map);
-
+      var myDataPoint2 = L.marker([39.762012, -105.038834]).addTo(map);
       // Create area feature for campus, stya and add to map
       var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
                       [39.748473, -105.002487], [39.740283, -104.999037]],
@@ -47,7 +47,7 @@
       // Add popups
       myDataPoint.bindPopup("<h3>This here is Auraria Library</h3><p>Mile High City</p>");
       myArea.bindPopup("Auraria Campus");
-
+      myDataPoint2.bindPopup("<h3>This here is Blue Pan Pizza</h3><p>Mile High City</p>");
       // Create function to return a lat and long from a point clicked on the <map>
       var popup = L.popup();
 
