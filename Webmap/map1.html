@@ -16,6 +16,23 @@
       var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                         { attribution: '@ OpenStreetMap' }).addTo(map);
 
+      // Watercolor stamen tile <map>
+      var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+          attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> $mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          subdomains: 'abcd',
+          minZoom: 1,
+          maxZoom: 16,
+          ext: 'jpg'
+      });
+
+
+      // Turn maps on and off
+      var = basemaps = { "Default Basemap:", defaultBase,
+                          "Stamen Watercolor": Stamen_Watercolor };
+
+      var overlays = {};
+      var layerMenu = L.control.layers(basemaps, overlays).addTo(map);
+
       // Create point for Auraria Library
       var myDataPoint = L.marker([39.745119, -105.002959]).addTo(map);
 
@@ -23,6 +40,9 @@
       var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
                       [39.748473, -105.002487], [39.740283, -104.999037]],
                       { color: 'blue', weight: 4 } ).addTo(map);
+      layerMenu.addOverlay(myArea, "Auraria Campus");
+      layerMenu.addOverlay(myDataPoint, "Auraria Library");                
+
 
       // Add popups
       myDataPoint.bindPopup("<h3>This here is Auraria Library</h3><p>Mile High City</p>");
@@ -43,17 +63,20 @@
       // Listen for a click event on the map
       map.on('click', onMapClick);
 
+      var buildings;
+
       // Load geojson file from external file
       $.getJSON("buildings.json", function(data) {
           // add geojson layer to the map one the file is loaded
-          L.geoJson(data, {
+        buildings =  L.geoJson(data, {
              onEachFeature: function (feature, layer) {
                layer.bindPopup("Building Type: " + feature.properties.BLDG_TYPE +
                                "<br>Building Height: " + feature.properties.BLDG_HEIGH +
                                "<br>Ground Elevation: " + feature.properties.GROUND_ELE);
               }
              }
-          ).addTo(map);
+          );
+          layerMenu.addOverlay(buildings, "Buildings")
         });
 
 
@@ -65,7 +88,7 @@
       html, body { height: 100%; }
       #map { height: 80%; width: 95%; }
       #map-title { width: 100%; }
-      h2 { color: pink; }
+      h2 { color: indigo; }
     </style>
 
   </head>
